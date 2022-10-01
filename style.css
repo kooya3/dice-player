@@ -1,0 +1,456 @@
+* {
+
+    padding: 0;
+  
+    margin: 0;
+  
+    box-sizing: border-box;
+  
+  }
+  
+   
+  
+  :root {
+  
+    --cube-size: 14vh;
+  
+    --color-bg: #e6911a;
+  
+    --color-outline: #302322;
+  
+    --color-light: #bfaa8c;
+  
+    --timing: 3s;
+  
+  }
+  
+   
+  
+  body {
+  
+    width: 100%;
+  
+    height: 100vh;
+  
+    display: flex;
+  
+    justify-content: space-around;
+  
+    align-items: center;
+  
+    flex-direction: column;
+  
+    background: var(--color-outline);
+  
+   
+  
+    border: calc(var(--cube-size) / 6) solid var(--color-outline);
+  
+    padding: calc(var(--cube-size) * 0.4);
+  
+  }
+  
+   
+  
+  body:before {
+  
+    position: absolute;
+  
+    content: "";
+  
+    width: calc(100% - 28px);
+  
+    height: calc(100% - 28px);
+  
+    background: var(--color-bg);
+  
+    border-radius: 40px;
+  
+  }
+  
+   
+  
+  header {
+  
+    text-align: center;
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    flex-direction: column;
+  
+    color: var(--color-outline);
+  
+    z-index: 100;
+  
+    font-family: "Arima", sans-serif;
+  
+  }
+  
+   
+  
+  h1 {
+  
+    font-size: calc(var(--cube-size) * 0.7);
+  
+    line-height: 1.2;
+  
+    font-weight: 400;
+  
+    z-index: 100;
+  
+  }
+  
+   
+  
+  span {
+  
+    font-size: calc(var(--cube-size) * 0.2);
+  
+  }
+  
+   
+  
+  .dice-container {
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    flex-wrap: wrap;
+  
+    transform-origin: center center;
+  
+    width: calc(var(--cube-size) * 4);
+  
+    height: auto;
+  
+    aspect-ratio: 1/1;
+  
+    animation: diceRotate var(--timing) linear infinite;
+  
+  }
+  
+   
+  
+  .dice {
+  
+    position: absolute;
+  
+    width: var(--cube-size);
+  
+    height: var(--cube-size);
+  
+    transform-style: preserve-3d;
+  
+    animation: spinner 3s linear infinite;
+  
+    margin: calc(var(--cube-size) / 2);
+  
+  }
+  
+   
+  
+  .dice:nth-of-type(1) {
+  
+    position: absolute;
+  
+    top: 0;
+  
+    animation: spinner var(--timing) linear infinite reverse;
+  
+  }
+  
+   
+  
+  .dice:nth-of-type(2) {
+  
+    position: absolute;
+  
+    left: 0;
+  
+    bottom: 0;
+  
+    animation: spinner calc(var(--timing) * 1.15) linear infinite reverse;
+  
+  }
+  
+   
+  
+  .dice:nth-of-type(3) {
+  
+    position: absolute;
+  
+    right: 0;
+  
+    bottom: 0;
+  
+  }
+  
+   
+  
+  .dice:nth-of-type(4) {
+  
+    position: absolute;
+  
+    left: 10;
+  
+    bottom: 6;
+  
+    animation: spinner calc(var(--timing) * 1.20) linear infinite reverse;
+  
+  }
+  
+  @keyframes spinner {
+  
+    0% {
+  
+      transform: rotate3d(1, 1, 1, 0deg);
+  
+    }
+  
+   
+  
+    100% {
+  
+      transform: rotate3d(1, 1, 1, 360deg);
+  
+    }
+  
+  }
+  
+   
+  
+  @keyframes diceRotate {
+  
+    0% {
+  
+      transform: rotate(0deg);
+  
+    }
+  
+   
+  
+    100% {
+  
+      transform: rotate(360deg);
+  
+    }
+  
+  }
+  
+   
+  
+  .side {
+  
+    position: absolute;
+  
+    width: 100%;
+  
+    height: 100%;
+  
+    background: var(--color-outline);
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    font-family: "Arial", sans-serif;
+  
+    overflow: hidden;
+  
+    transform-style: preserve-3d;
+  
+    transform-origin: center center;
+  
+  }
+  
+   
+  
+  .side:after {
+  
+    position: absolute;
+  
+    background-size: 100% 100%;
+  
+    width: 100%;
+  
+    height: 100%;
+  
+    background-repeat: no-repeat;
+  
+  }
+  
+   
+  
+  .side:before {
+  
+    position: absolute;
+  
+    box-sizing: border-box;
+  
+    content: "";
+  
+    width: 92%;
+  
+    height: 92%;
+  
+    background: var(--color-bg);
+  
+    border-radius: 15%;
+  
+  }
+  
+   
+  
+  .one {
+  
+    transform: translateY(calc(var(--cube-size) / 2)) rotateX(-90deg);
+  
+  }
+  
+   
+  
+  .one:after {
+  
+    content: "";
+  
+    position: absolute;
+  
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none'%3E%3Ccircle cx='28' cy='28' r='6' fill='%23302322'/%3E%3C/svg%3E");
+  
+  }
+  
+   
+  
+  .two {
+  
+    transform: translateX(calc(var(--cube-size) / 2)) rotateY(-90deg);
+  
+  }
+  
+   
+  
+  .two:after {
+  
+    position: absolute;
+  
+    content: "";
+  
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='44' r='6' fill='%23302322'/%3E%3C/svg%3E");
+  
+  }
+  
+   
+  
+  .three {
+  
+    transform: translateZ(calc(var(--cube-size) / -2)) rotateY(0deg);
+  
+  }
+  
+   
+  
+  .three:after {
+  
+    content: "";
+  
+    position: absolute;
+  
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='28' cy='28' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='44' r='6' fill='%23302322'/%3E%3C/svg%3E");
+  
+  }
+  
+   
+  
+  .four {
+  
+    transform: translateZ(calc(var(--cube-size) / 2)) rotateY(0deg);
+  
+  }
+  
+   
+  
+  .four:after {
+  
+    content: "";
+  
+    position: absolute;
+  
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='12' cy='44' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='44' r='6' fill='%23302322'/%3E%3C/svg%3E");
+  
+  }
+  
+   
+  
+  .five {
+  
+    transform: translateX(calc(var(--cube-size) / -2)) rotateY(-90deg);
+  
+  }
+  
+   
+  
+  .five:after {
+  
+    position: absolute;
+  
+    content: "";
+  
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='28' cy='28' r='6' fill='%23302322'/%3E%3Ccircle cx='12' cy='44' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='44' r='6' fill='%23302322'/%3E%3C/svg%3E");
+  
+  }
+  
+   
+  
+  .six {
+  
+    transform: translateY(calc(var(--cube-size) / -2)) rotateX(-90deg);
+  
+  }
+  
+   
+  
+  .six:after {
+  
+    content: "";
+  
+    position: absolute;
+  
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='12' cy='28' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='28' r='6' fill='%23302322'/%3E%3Ccircle cx='12' cy='44' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='12' r='6' fill='%23302322'/%3E%3Ccircle cx='44' cy='44' r='6' fill='%23302322'/%3E%3C/svg%3E");
+  
+  }
+
+  #bdo{
+
+    text-align: center;
+    font-family: Roboto;
+    size-adjust: stretch;
+    
+  }
+  
+   
+  
+  /* @media only screen and (max-width: 680px) {
+  
+    :root {
+  
+      --cube-size: 10vh;
+  
+    }
+  
+  } */
+  
+   
+  
+   
+  
+   
+  
