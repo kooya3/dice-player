@@ -1,4 +1,4 @@
-const audio = new Audio('/dice-player/music/Chrishan - Sin City.mp3" type="audio/mp3">');
+/* const audio = new Audio('Chrishan - Sin City.mp3" type="audio/mp3">');
 const btn = document.querySelector('#play');
 
 btn.addEventListener('click', () => {
@@ -7,4 +7,4 @@ btn.addEventListener('click', () => {
 
 var boo = document.getElementById('player');
 boo.pause();  //just bind play/pause to some onclick events on your page
-boo.play();
+boo.play(); */
