@@ -1,4 +1,4 @@
-const audio = new Audio('/home/elyees/dice-player/2b/dice-player/music/Chrishan - Sin City.mp3" type="audio/mp3">');
+const audio = new Audio('/dice-player/music/Chrishan - Sin City.mp3" type="audio/mp3">');
 const btn = document.querySelector('#play');
 
 btn.addEventListener('click', () => {
