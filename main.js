@@ -1,16 +1,10 @@
-let myPoints = 3;
+const audio = new Audio('/home/elyees/dice-player/2b/dice-player/music/Chrishan - Sin City.mp3" type="audio/mp3">');
+const btn = document.querySelector('#play');
 
-function add3Points() {
-    myPoints += 3;
+btn.addEventListener('click', () => {
+  audio.play();
+});
 
-}
-
-function remove1Point(){
-    myPoints -= 1;
-};
-console.log(myPoints);
-add3Points();
-add3Points();
-add3Points();
-remove1Point();
-remove1Point();
+var boo = document.getElementById('player');
+boo.pause();  //just bind play/pause to some onclick events on your page
+boo.play();
